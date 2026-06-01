@@ -1,0 +1,66 @@
+{
+  "tasks": [
+    {
+      "label": "Build file",
+      "type": "cppbuild",
+      "command": "/usr/bin/clang++",
+      "args": [
+        "-fcolor-diagnostics",
+        "-fansi-escape-codes",
+        "-g",
+        "${file}",
+        "-o",
+        "${workspaceFolder}/bin/debug/${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "detail": "Build current file for debug"
+    },
+    {
+      "label": "Build project debug",
+      "type": "cppbuild",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-g",
+        "src/*.cpp",
+        "-Iinclude",
+        "-o",
+        "${workspaceFolder}/bin/debug/myapp"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "build whole project for debug"
+    },
+    {
+      "label": "Build project release",
+      "type": "cppbuild",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-O2",
+        "src/*.cpp",
+        "-o",
+        "${workspaceFolder}/bin/release/myapp"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "build whole project for release"
+    }
+  ],
+  "version": "2.0.0"
+}

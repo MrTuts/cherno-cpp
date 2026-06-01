@@ -80,7 +80,7 @@ void Theory()
   delete hvector;      // free the allocated memory for the Vector3
   free(hvector2);      // free the allocated memory for the Vector3. `free` does not call the destructor, `delete` does.
   delete[] hvectorArr; // free the allocated memory for the array of Vector3
-  delete ptr;          // free the allocated memory for the float array
+  delete[] ptr;        // free the allocated memory for the float array
   delete hvector3;     // free the allocated memory for the Vector3
 }
 

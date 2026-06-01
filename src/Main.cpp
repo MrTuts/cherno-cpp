@@ -13,7 +13,8 @@ void Inheritance();
 void Memory();
 void VirtualFunctions();
 void Interfaces();
-void Visiblity();
+void Visibility();
+void Arrays();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -29,7 +30,8 @@ int main()
   // Memory();
   // VirtualFunctions();
   // Interfaces();
-  Visiblity();
+  // Visibility();
+  Arrays();
 
   /* --static code example */
   // StaticFn();

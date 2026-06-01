@@ -1,40 +1,43 @@
 #include "Log.h"
 
-struct Entity
+namespace
 {
-  // can only be accessed by the class itself, not by derived classes or outside code
-private:
-  int x, y;
-
-  void Print()
+  struct Entity
   {
-  }
+    // can only be accessed by the class itself, not by derived classes or outside code
+  private:
+    int x, y;
 
-  // can be accessed by the class itself and by derived classes, but not by outside code
-protected:
-  int health;
+    void Print()
+    {
+    }
 
-  // can be accessed everywhere
-public:
-  Entity() : x(0), y(0), health(100) {}
-};
+    // can be accessed by the class itself and by derived classes, but not by outside code
+  protected:
+    int health;
 
-class Player : public Entity
-{
-public:
-  Player()
+    // can be accessed everywhere
+  public:
+    Entity() : x(0), y(0), health(100) {}
+  };
+
+  class Player : public Entity
   {
-    // this->x = 10; // error: 'int Entity::x' is private within this context
-    // this->Print(); // error: 'void Entity::Print()' is private within this context
+  public:
+    Player()
+    {
+      // this->x = 10; // error: 'int Entity::x' is private within this context
+      // this->Print(); // error: 'void Entity::Print()' is private within this context
 
-    this->health = 80; // this is fine, because health is protected, so it can be accessed by derived classes
-  }
-};
+      this->health = 80; // this is fine, because health is protected, so it can be accessed by derived classes
+    }
+  };
 
-// passing private here means that outside code cannot treat Player as an Entity.
-class PlayerPrivate : private Entity
-{
-};
+  // passing private here means that outside code cannot treat Player as an Entity.
+  class PlayerPrivate : private Entity
+  {
+  };
+}
 
 void Visibility()
 {

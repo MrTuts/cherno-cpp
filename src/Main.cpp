@@ -15,6 +15,8 @@ void VirtualFunctions();
 void Interfaces();
 void Visibility();
 void Arrays();
+void Strings();
+void Consts();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -31,7 +33,9 @@ int main()
   // VirtualFunctions();
   // Interfaces();
   // Visibility();
-  Arrays();
+  // Arrays();
+  // Strings();
+  Consts();
 
   /* --static code example */
   // StaticFn();

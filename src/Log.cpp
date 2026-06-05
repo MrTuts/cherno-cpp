@@ -10,6 +10,11 @@ int Log(int value)
   std::cout << value << std::endl;
 }
 
+int Log(const int *value)
+{
+  std::cout << *value << std::endl;
+}
+
 int Log(const std::string &message)
 {
   std::cout << message << std::endl;

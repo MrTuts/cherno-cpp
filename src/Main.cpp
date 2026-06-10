@@ -17,6 +17,8 @@ void Visibility();
 void Arrays();
 void Strings();
 void Consts();
+void Mutables();
+void ConstructorInitializerList();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -35,7 +37,9 @@ int main()
   // Visibility();
   // Arrays();
   // Strings();
-  Consts();
+  // Consts();
+  // Mutables();
+  ConstructorInitializerList();
 
   /* --static code example */
   // StaticFn();

@@ -64,21 +64,24 @@ static void PrintEntity(const Entity &e)
   Log(e.GetX());
   Log(e.GetPX());
 }
-void PrintEntity(Entity *e)
+static void PrintEntity(Entity *e)
 {
   e = new Entity(); // IS ALLOWED, we can change where e points to
   e->SetX(5);       // IS ALLOWED, because we are changing the value of the entity that e points to, not where e points to
   Log(e->GetX());
   Log(e->GetPX());
 }
-void PrintEntity(const Entity *e)
+static void PrintEntity(const Entity *e)
 {
   e = new Entity(); // IS ALLOWED, we can change where e points to
   // e->SetX(5); // NOT ALLOWED
   Log(e->GetX());
   Log(e->GetPX());
 }
-void PrintEntity(const Entity *const e)
+// this would collide with `static void PrintEntity(const Entity *e)` implementation,
+// because the only difference is the const qualifier, which is not enough for the compiler to distinguish between the two functions.
+// This would cause a compile error due to function overloading ambiguity.
+static void PrintEntity2(const Entity *const e)
 {
   // e = new Entity(); // NOT ALLOWED, we cannot change where e points to
   // e->SetX(5); // NOT ALLOWED, we cannot change the value of the entity

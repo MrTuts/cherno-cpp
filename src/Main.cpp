@@ -19,6 +19,10 @@ void Strings();
 void Consts();
 void Mutables();
 void ConstructorInitializerList();
+void TernaryOperators();
+void ImplicitExplicit();
+void Operators();
+void ThisKeyword();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -39,7 +43,11 @@ int main()
   // Strings();
   // Consts();
   // Mutables();
-  ConstructorInitializerList();
+  // ConstructorInitializerList();
+  // TernaryOperators();
+  // ImplicitExplicit();
+  // Operators();
+  ThisKeyword();
 
   /* --static code example */
   // StaticFn();

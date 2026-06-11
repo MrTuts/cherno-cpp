@@ -23,6 +23,8 @@ void TernaryOperators();
 void ImplicitExplicit();
 void Operators();
 void ThisKeyword();
+void ObjectLifetimes();
+void SmartPointers();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -47,7 +49,9 @@ int main()
   // TernaryOperators();
   // ImplicitExplicit();
   // Operators();
-  ThisKeyword();
+  // ThisKeyword();
+  // ObjectLifetimes();
+  SmartPointers();
 
   /* --static code example */
   // StaticFn();

@@ -25,6 +25,7 @@ void Operators();
 void ThisKeyword();
 void ObjectLifetimes();
 void SmartPointers();
+void Copying();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -51,7 +52,8 @@ int main()
   // Operators();
   // ThisKeyword();
   // ObjectLifetimes();
-  SmartPointers();
+  // SmartPointers();
+  Copying();
 
   /* --static code example */
   // StaticFn();

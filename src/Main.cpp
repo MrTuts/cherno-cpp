@@ -26,6 +26,8 @@ void ThisKeyword();
 void ObjectLifetimes();
 void SmartPointers();
 void Copying();
+void ArrowOperator();
+void DynamicArrays();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -53,7 +55,9 @@ int main()
   // ThisKeyword();
   // ObjectLifetimes();
   // SmartPointers();
-  Copying();
+  // Copying();
+  // ArrowOperator();
+  DynamicArrays();
 
   /* --static code example */
   // StaticFn();

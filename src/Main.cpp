@@ -29,6 +29,7 @@ void Copying();
 void ArrowOperator();
 void DynamicArrays();
 void DynamicArraysOptimizations();
+void MultipleReturns();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -60,6 +61,7 @@ int main()
   // ArrowOperator();
   // DynamicArrays();
   // DynamicArraysOptimizations();
+  MultipleReturns();
 
   /* --static code example */
   // StaticFn();

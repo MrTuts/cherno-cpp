@@ -13,6 +13,7 @@ static void ExampleFn1(const std::string &string, std::string &outRes1, std::str
 
 // pass the return values in function params as pointers
 // allows us to pass nullptrs
+// might be good for optimization, since we declare values on the main function and just assign theme here
 static void ExampleFn2(const std::string &string, std::string *outRes1, std::string *outRes2)
 {
   // check for nullptr
@@ -111,6 +112,9 @@ void MultipleReturns()
 
   std::tuple<std::string, std::string, int> example6Res = ExampleFn6("Brown");
   Log("Example 6_res1: " + std::get<0>(example6Res) + ", res2: " + std::get<1>(example6Res) + ", res3: " + std::to_string(std::get<2>(example6Res)));
+  // we could also name our return values here. This is C++17 feature
+  auto [FirstTwoChars, SecondTwoChars, theThird] = ExampleFn6("Brown");
+  Log("Example 6(2)_res1: " + FirstTwoChars + ", res2: " + SecondTwoChars + ", res3: " + std::to_string(theThird));
 
   // Tha BEST
   FnResult example7Res = ExampleFn7("Pink");

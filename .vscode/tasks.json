@@ -23,6 +23,34 @@
       "detail": "Build current file for debug"
     },
     {
+      "label": "Build file assembly",
+      "type": "cppbuild",
+      "command": "g++",
+      "comments": {
+        "-S": "Stop after compilation, output assembly (.s/.asm) instead of an object file",
+        "-fverbose-asm": "Add comments showing which source line generated each instruction",
+        "-O0": "No optimization — keeps the assembly close to what you wrote (use -O2 to see optimized output)"
+      },
+      "args": [
+        "-std=c++17",
+        "-S",
+        "-fverbose-asm",
+        "-O0",
+        "${file}",
+        "-o",
+        "${workspaceFolder}/bin/debug/${fileBasenameNoExtension}.asm"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "detail": "Build current file for debug"
+    },
+    {
       "label": "Build project debug",
       "type": "cppbuild",
       "command": "g++",

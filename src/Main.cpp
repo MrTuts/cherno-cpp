@@ -28,6 +28,7 @@ void SmartPointers();
 void Copying();
 void ArrowOperator();
 void DynamicArrays();
+void DynamicArraysOptimizations();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -57,7 +58,8 @@ int main()
   // SmartPointers();
   // Copying();
   // ArrowOperator();
-  DynamicArrays();
+  // DynamicArrays();
+  // DynamicArraysOptimizations();
 
   /* --static code example */
   // StaticFn();

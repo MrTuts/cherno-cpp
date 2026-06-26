@@ -54,11 +54,16 @@
       "label": "Build project debug",
       "type": "cppbuild",
       "command": "g++",
+      "comments": {
+        "-DDEBUG": "preprocessor definition of DEBUG"
+      },
       "args": [
         "-std=c++17",
         "-Wall",
         "-Wextra",
         "-g",
+        "-DDEBUG",
+        "-DPR_DEBUG=1",
         "src/*.cpp",
         "-Iinclude",
         "-o",
@@ -75,9 +80,14 @@
       "label": "Build project release",
       "type": "cppbuild",
       "command": "g++",
+      "comments": {
+        "-DRELEASE": "preprocessor definition of RELEASE"
+      },
       "args": [
         "-std=c++17",
         "-O2",
+        "-DRELEASE",
+        "-DPR_DEBUG=0",
         "src/*.cpp",
         "-o",
         "${workspaceFolder}/bin/release/myapp"

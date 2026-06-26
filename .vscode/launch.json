@@ -21,6 +21,15 @@
       "args": [],
       "cwd": "${workspaceRoot}",
       "preLaunchTask": "Build project debug"
+    },
+    {
+      "name": "Project - build and launch release",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/bin/release/myapp",
+      "args": [],
+      "cwd": "${workspaceRoot}",
+      "preLaunchTask": "Build project release"
     }
   ]
 }

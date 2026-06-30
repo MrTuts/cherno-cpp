@@ -25,7 +25,7 @@ void DynamicArrays()
 {
   // Vertex vertices[5]; // stack allocated array of 5 Vertex structs
 
-  // vector arrays are not fragmanted in memory, they are all in line
+  // vector arrays are not fragmanted in memory, they are all in line. The underlying data are stored on heap.
   // if the vector needs to be resized, all data is copied to different place in memory with more available space.
   // This has disadvantage that all the data needs to be copied
   // This has advantage of faster memory access

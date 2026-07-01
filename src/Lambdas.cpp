@@ -1,5 +1,6 @@
 #include "Log.h"
 #include <vector>
+#include <iostream>
 #include <string>
 #include <algorithm>
 #include <functional>
@@ -36,8 +37,21 @@ void Lambdas()
   ForEach(values, lambda);
 
   // from <algorithm>
+  // iterator is a handle to the found element inside the vector, not the element value itself.
   auto iterator = std::find_if(values.begin(), values.end(), [](int value)
                                { return value > 3; });
 
-  Log("find_if result: " + std::to_string(*iterator));
+  // check whether the find_if found some result
+  if (iterator == values.end())
+  {
+    Log("find_if result NOT FOUND");
+  }
+  else
+  {
+    // get the index of found element
+    // auto index = iterator - values.begin();
+    auto index = std::distance(values.begin(), iterator); // better way that also works with std::list etc.
+
+    Log("find_if result: " + std::to_string(*iterator) + ", at position: " + std::to_string(index));
+  }
 }

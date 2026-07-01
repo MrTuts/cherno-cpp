@@ -35,6 +35,7 @@ void Macros();
 void AutoKeyword();
 void StaticArrays();
 void FunctionPointers();
+void Lambdas();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -71,7 +72,8 @@ int main()
   // Macros();
   // AutoKeyword();
   // StaticArrays();
-  FunctionPointers();
+  // FunctionPointers();
+  Lambdas();
 
   /* --static code example */
   // StaticFn();

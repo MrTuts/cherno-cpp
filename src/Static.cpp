@@ -70,7 +70,7 @@ namespace
   };
 }
 
-void Function()
+static void Function()
 {
   // when this function is called for the first time, it will be initialized to 0
   // when called any other time, the value won't initialize again

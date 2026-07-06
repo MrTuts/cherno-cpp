@@ -37,6 +37,8 @@ void StaticArrays();
 void FunctionPointers();
 void Lambdas();
 void Namespaces();
+void Threads();
+void Timing();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -75,7 +77,9 @@ int main()
   // StaticArrays();
   // FunctionPointers();
   // Lambdas();
-  Namespaces();
+  // Namespaces();
+  // Threads();
+  Timing();
 
   /* --static code example */
   // StaticFn();

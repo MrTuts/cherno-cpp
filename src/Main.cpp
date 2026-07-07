@@ -39,6 +39,8 @@ void Lambdas();
 void Namespaces();
 void Threads();
 void Timing();
+void ArrayMultidim();
+void Sorting();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -79,7 +81,9 @@ int main()
   // Lambdas();
   // Namespaces();
   // Threads();
-  Timing();
+  // Timing();
+  // ArrayMultidim();
+  Sorting();
 
   /* --static code example */
   // StaticFn();

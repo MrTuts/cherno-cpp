@@ -41,6 +41,8 @@ void Threads();
 void Timing();
 void ArrayMultidim();
 void Sorting();
+void TypePunning();
+void Unions();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -83,7 +85,9 @@ int main()
   // Threads();
   // Timing();
   // ArrayMultidim();
-  Sorting();
+  // Sorting();
+  // TypePunning();
+  Unions();
 
   /* --static code example */
   // StaticFn();

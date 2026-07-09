@@ -43,6 +43,7 @@ void ArrayMultidim();
 void Sorting();
 void TypePunning();
 void Unions();
+void VirtualDestructors();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -87,7 +88,8 @@ int main()
   // ArrayMultidim();
   // Sorting();
   // TypePunning();
-  Unions();
+  // Unions();
+  VirtualDestructors();
 
   /* --static code example */
   // StaticFn();

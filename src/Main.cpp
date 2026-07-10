@@ -44,6 +44,8 @@ void Sorting();
 void TypePunning();
 void Unions();
 void VirtualDestructors();
+void TypeCasting();
+void ConditionalAndActionBreakpoints();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
@@ -89,7 +91,9 @@ int main()
   // Sorting();
   // TypePunning();
   // Unions();
-  VirtualDestructors();
+  // VirtualDestructors();
+  // TypeCasting();
+  ConditionalAndActionBreakpoints();
 
   /* --static code example */
   // StaticFn();

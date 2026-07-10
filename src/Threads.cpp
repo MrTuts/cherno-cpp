@@ -4,7 +4,7 @@
 
 static bool s_Finished = false;
 
-void DoWork()
+static void DoWork()
 {
   using namespace std::literals::chrono_literals; // for the 1s
 

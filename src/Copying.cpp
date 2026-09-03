@@ -32,7 +32,7 @@ namespace
     }
 
     // Copy constructor - accepts its own class in the constructor
-    // String(const String &other) = delete // this would disable copying if this class
+    // String(const String &other) = delete // this would disable copying if this class cannot be copied
     String(const String &other) : m_Size(other.m_Size)
     {
       Log("Copied string");

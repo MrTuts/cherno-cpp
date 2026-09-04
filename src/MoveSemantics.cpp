@@ -1,11 +1,13 @@
 #include "Log.h"
 
+#include <iostream>
+
 namespace
 {
   class String
   {
   public:
-    String() = default;
+    String() : m_Data(nullptr), m_Size(0) {}
     String(const char *string)
     {
       Log("Created");
@@ -41,6 +43,29 @@ namespace
       // it does not destroy data new String is pointing to
       other.m_Size = 0;
       other.m_Data = nullptr;
+    }
+
+    // move assignment operator
+    String &operator=(String &&other) noexcept
+    {
+      Log("Move operator");
+      // !We are not constructing new object, we are moving another object into an existing one (ourselves)!
+
+      // check if we are moving itself into itself, in that case we don't do anything
+      if (this != &other)
+      {
+        // delete our current data
+        delete[] m_Data;
+        // shallow copy incoming data
+        m_Size = other.m_Size;
+        m_Data = other.m_Data; // point to the same data
+
+        // "deinitialize" the old "other" String
+        other.m_Size = 0;
+        other.m_Data = nullptr;
+      }
+
+      return *this;
     }
 
     void Print()
@@ -92,24 +117,75 @@ namespace
 void MoveSemantics()
 {
   LogSectionTitle("Move Semantics");
+  {
+    // Explicitly creates a temporary String from "Pavel".
+    // The temporary is an rvalue, so Entity(String&&) is selected.
+    // Inside Entity(String&&), std::move(name) allows m_Name to be move-constructed.
+    Entity entity(String("Pavel"));
+    entity.PrintName();
+    Log("---");
 
-  // Explicitly creates a temporary String from "Pavel".
-  // The temporary is an rvalue, so Entity(String&&) is selected.
-  // Inside Entity(String&&), std::move(name) allows m_Name to be move-constructed.
-  Entity entity(String("Pavel"));
-  entity.PrintName();
-  Log("---");
+    // "George" is a const char*, which can be converted to a temporary String.
+    // That temporary String is an rvalue, so Entity(String&&) is selected.
+    // m_Name is then move-constructed from that temporary.
+    Entity entity2("George");
+    entity2.PrintName();
+    Log("---");
 
-  // "George" is a const char*, which can be converted to a temporary String.
-  // That temporary String is an rvalue, so Entity(String&&) is selected.
-  // m_Name is then move-constructed from that temporary.
-  Entity entity2("George");
-  entity2.PrintName();
+    String str("Karel");
+    // str is a named variable, so it is an lvalue.
+    // Entity(const String&) is selected, and m_Name is copy-constructed.
+    Entity entity3(str);
+    Log("---");
+  }
+  Log("---Copying---");
+  {
+    String srcString = "Hello";
+    String destStringCopy = srcString; // calls copy constructor
+  }
+  Log("---move constructor---");
+  {
+    String srcString = "Hello";
+    // these always create new object using the move constructor
+    String destString = (String &&)srcString;    // cast to rvalue reference to call the move constructor
+    String destString2((String &&)destString);   // the same as above
+    String destString3(std::move(destString2));  // essentially the same as above, but best
+    String destString4 = std::move(destString3); // same as above
+    destString.Print();                          // prints nothing - was moved to destString2
+    destString2.Print();                         // prints nothing - was moved to destString3
+    destString3.Print();                         // prints nothing - was moved to destString4
+    destString4.Print();                         // prints value, is current data holder
+  }
   Log("---");
+  {
+    String srcString = "Hello";
+    String destString2(std::move(srcString)); // creating new object using the move constructor
+  }
+  Log("---move assignment---");
+  {
+    String srcString = "Hello";
+    String destString;
 
-  String str("Karel");
-  // str is a named variable, so it is an lvalue.
-  // Entity(const String&) is selected, and m_Name is copy-constructed.
-  Entity entity3(str);
-  Log("---");
+    std::cout << "srcString: ";
+    srcString.Print();
+    std::cout << "destString: ";
+    destString.Print();
+
+    // move srcString into destString using move assignment operator
+    destString = std::move(srcString);
+    /*
+      Not the same as:
+        `String destString4 = std::move(destString3);`
+      that calls the move constructor.
+      What we have above can be rewritten as:
+        `destString.operator=(std::move(srcString));`
+      That CANNOT be done with
+        `String destString4.operator=(std::move(destString3));`
+    */
+
+    std::cout << "srcString: ";
+    srcString.Print();
+    std::cout << "destString: ";
+    destString.Print();
+  }
 }

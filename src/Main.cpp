@@ -46,8 +46,8 @@ void Unions();
 void VirtualDestructors();
 void TypeCasting();
 void ConditionalAndActionBreakpoints();
-void MoveSemantics();
 void LRValues();
+void MoveSemantics();
 
 extern int g_Variable; // external linkage. Links to g_Variable defined in Static.cpp
 
